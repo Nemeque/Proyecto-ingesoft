@@ -122,9 +122,6 @@ Antes de empezar necesitas tener instalados:
 git clone <URL_DE_TU_REPO> LibreChoice
 cd LibreChoice
 ```
-
-> ⚠️ **Importante sobre la base de datos**: el archivo `backend/db.sqlite3` **NO se sube a git** (está en `.gitignore`). Esto es lo correcto en proyectos Django. En su lugar, el CSV `docs/cursos_libre_eleccion_ejemplo.csv` y el comando `import_courses` permiten regenerar la BD en cualquier máquina en segundos. Ver paso 5.
-
 ### Paso 2 — Levantar el backend
 
 Abre una terminal en la carpeta del proyecto:
@@ -132,12 +129,9 @@ Abre una terminal en la carpeta del proyecto:
 ```bash
 cd backend
 python -m venv venv
-
-# Windows (PowerShell):
 venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-
 
 python manage.py migrate
 python manage.py seed_demo
@@ -161,17 +155,8 @@ Abre **otra terminal** en la carpeta del proyecto:
 
 ```bash
 cd frontend
-
-# Instalar dependencias
 npm install
-
-# Crear .env.local desde el ejemplo
-# Windows:
 copy .env.example .env.local
-# macOS / Linux:
-cp .env.example .env.local
-
-# Levantar el servidor de desarrollo
 npm run dev
 ```
 
